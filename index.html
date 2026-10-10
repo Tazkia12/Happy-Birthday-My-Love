@@ -1,0 +1,730 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#25172f">
+
+  <title>For My Favorite Person ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Dekorasi latar -->
+  <div class="stars" id="stars"></div>
+  <div class="floating-particles" id="particles"></div>
+  <div class="progress" id="progress"></div>
+
+  <main id="app">
+    
+<!-- INTRO SCREEN: HER SPECIAL DAY -->
+<div id="birthdayIntro" class="birthday-intro">
+    <div class="intro-stars"></div>
+    <div class="intro-glow"></div>
+
+    <div class="intro-content">
+        <p class="intro-eyebrow">✦ A LITTLE SURPRISE FOR YOU ✦</p>
+
+        <h1 class="intro-title">
+            Her Special Day
+            <span>Is Coming</span>
+        </h1>
+
+        <p class="intro-subtitle">
+            Someone special deserves something beautiful ♡
+        </p>
+
+        
+<div class="intro-countdown">
+    <div class="count-box">
+        <strong id="countDays">00</strong>
+        <span>DAYS</span>
+    </div>
+
+    <div class="count-box">
+        <strong id="countHours">00</strong>
+        <span>HOURS</span>
+    </div>
+
+    <div class="count-box">
+        <strong id="countMinutes">00</strong>
+        <span>MINUTES</span>
+    </div>
+
+    <div class="count-box">
+        <strong id="countSeconds">00</strong>
+        <span>SECONDS</span>
+    </div>
+</div>
+
+        <p class="intro-note">A little world made just for you</p>
+
+        <button id="introEnterBtn" class="intro-button">
+            Open Your Surprise
+            <span>♡</span>
+        </button>
+
+        <div class="intro-bottom">MADE WITH LOVE ✦ JUST FOR YOU</div>
+    </div>
+</div>
+<!-- END INTRO SCREEN -->
+
+    <!-- SLIDE 1: PASSWORD -->
+    <section class="slide active password-slide" data-title="Secret Gate">
+      <div class="paper password-card">
+        <div class="tiny-flower">✿</div>
+
+        <p class="eyebrow">A LITTLE SURPRISE FOR YOU</p>
+        <h1>Before you enter...</h1>
+
+        <p class="muted">
+          Aku punya sesuatu yang spesial buat kamu.
+          Tapi kamu harus membuka pintunya dulu ♡
+        </p>
+
+        <div class="lock-icon" id="lockIcon">🔐</div>
+
+        <form id="passwordForm">
+          <label for="password">Masukkan password rahasia</label>
+
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Tebak password-nya..."
+            autocomplete="off"
+            autocapitalize="off"
+            required
+          >
+
+          <button type="submit" class="btn primary">
+            Open my heart ♡
+          </button>
+        </form>
+
+        <p class="error" id="passwordError" aria-live="polite"></p>
+
+        <p class="hint">
+          Petunjuk: tanggal yang spesial buat kita 🤍
+        </p>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: PERTANYAAN -->
+    <section class="slide" data-title="One Question">
+      <div class="question-card">
+        <span class="floating-heart">♡</span>
+
+        <p class="eyebrow">WAIT, ONE IMPORTANT QUESTION</p>
+
+        <h1>Kamu sayang aku<br>atau nggak?</h1>
+
+        <p class="muted">
+          Jawab yang jujur yaa. Aku lihat loh 👀
+        </p>
+
+        <div class="answer-buttons">
+          <button class="btn yes-btn" id="yesBtn">
+            IYAAA 💗
+          </button>
+
+          <button class="btn no-btn" id="noBtn">
+            NGGAK 😈
+          </button>
+        </div>
+
+        <p class="tiny-note">
+          Hati-hati memilih jawaban, Tuan Besar wkwk.
+        </p>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: BOM KARTUN -->
+    <section class="slide" data-title="Oops">
+      <div class="surprise-card">
+        <div class="bomb" id="bomb">💣</div>
+
+        <p class="eyebrow">OH NO...</p>
+        <h1>KAMU PILIH NGGAK?!</h1>
+
+        <p id="bombText">
+          Kesempatan terakhir untuk berubah pikiran...
+        </p>
+
+        <div class="countdown" id="countdown">3</div>
+
+        <div id="explosion" class="explosion hidden">💥</div>
+
+        <button class="btn primary" id="retryBtn">
+          AKU SAYANG KOK 😭💗
+        </button>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: HADIAH -->
+    <section class="slide" data-title="A Gift">
+      <div class="surprise-card">
+        <p class="eyebrow">YAYYY, I KNEW IT!</p>
+
+        <h1>Good boy gets a gift 🎁</h1>
+
+        <p class="muted">
+          Ada hadiah kecil dari aku untuk kamu...
+        </p>
+
+        <button
+          class="gift-box"
+          id="giftBtn"
+          aria-label="Buka hadiah"
+        >
+          <span class="gift-emoji" id="giftEmoji">🎁</span>
+          <span class="gift-caption">TAP TO OPEN</span>
+        </button>
+
+        <p class="tiny-note" id="giftHint">
+          Buka donggg, jangan malu-malu ♡
+        </p>
+
+        <button class="btn primary hidden" id="giftContinue">
+          Lihat surprise berikutnya →
+        </button>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: COVER -->
+    <section class="slide cover-slide" data-title="Birthday Cover">
+      <div class="scrapbook">
+        <div class="tape"></div>
+
+        <p class="eyebrow">
+          A SPECIAL DAY FOR MY FAVORITE HUMAN
+        </p>
+
+        <div class="cover-photo">
+          <img
+            src="assets/foto-utama.jpg"
+            alt="Foto kenangan kita"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"
+          >
+
+          <div class="photo-placeholder">
+            📸<br>
+            <small>Our favorite picture</small>
+          </div>
+
+          <span class="photo-sticker">♡ us ♡</span>
+        </div>
+
+        <h1>
+          Happy Birthday,<br>
+          <em>my favorite person.</em>
+        </h1>
+
+        <p class="cover-subtitle">
+          11 October · Chapter 25
+        </p>
+
+        <div class="scribble">
+          made with love, just for you ♡
+        </div>
+
+        <button class="btn dark-btn next-btn">
+          Turn the page →
+        </button>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: UCAPAN -->
+    <section class="slide" data-title="Birthday Wishes">
+      <div class="paper">
+        <p class="eyebrow">TODAY IS ALL ABOUT YOU</p>
+
+        <div class="big-emoji">🎂</div>
+
+        <h1>Happy 25th Birthday!</h1>
+
+        <p class="body-copy">
+          Selamat ulang tahun untuk laki-laki yang entah bagaimana
+          berhasil menjadi salah satu bagian paling menyenangkan
+          dalam hidupku.
+        </p>
+
+        <p class="body-copy">
+          Hari ini kamu bertambah umur, dan aku cuma mau kamu tahu:
+          aku senang banget bisa kenal kamu. ♡
+        </p>
+
+        <div class="stamp">
+          MY PERSON<br>
+          EST. 2025
+        </div>
+
+        <button class="btn primary next-btn">
+          Ada surat buat kamu →
+        </button>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: SURAT CINTA -->
+    <section class="slide" data-title="Love Letter">
+      <div class="letter">
+        <div class="letter-top">✉ A LETTER FOR YOU</div>
+
+        <h1>Dear, my love.</h1>
+
+        <p>
+          Selamat ulang tahun, ya, sayang. 🤍
+        </p>
+
+        <p>
+          Aku berharap di usia barumu ini, kamu selalu diberi kesehatan,
+           kebahagiaan, dan kemudahan dalam setiap hal yang sedang kamu usahakan.
+           Semoga satu per satu impianmu bisa terwujud dan selalu ada hal baik yang
+            membuatmu tersenyum.
+        </p>
+
+        <p>
+         Terima kasih sudah hadir dalam hidupku. Aku senang bisa 
+         mengenalmu dan menjadi bagian dari ceritamu. Aku harap 
+         kita bisa terus saling memahami, mendukung, dan tumbuh
+         menjadi pribadi yang lebih baik.
+        </p>
+
+        <p>
+          Jangan lupa jaga dirimu baik-baik, ya. Apa pun yang 
+          sedang kamu hadapi, semoga kamu selalu punya alasan 
+          untuk tetap melangkah dan percaya pada dirimu sendiri.
+        </p>
+
+        <p>
+          Selamat bertambah usia. Semoga banyak hal baik datang kepadamu, hari ini dan seterusnya. 💗
+        </p>
+
+        <p class="signature">
+          With all my love,<br>
+          <em>your girl ♡</em>
+        </p>
+
+        <button class="btn primary next-btn">
+          Lihat kenangan kita →
+        </button>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: GALERI FOTO -->
+    <section class="slide" data-title="Memory Gallery">
+      <div class="gallery-page">
+        <p class="eyebrow">LITTLE PIECES OF US</p>
+
+        <h1>Our Memory Wall 📸</h1>
+
+        <p class="muted">
+          Setiap foto punya cerita kecilnya sendiri.
+        </p>
+
+        <div class="gallery" id="gallery"></div>
+
+        <p class="tiny-note">
+          Klik foto untuk melihat lebih dekat ♡
+        </p>
+
+        <button class="btn primary next-btn">
+          Ada video buat kamu →
+        </button>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: VIDEO KENANGAN -->
+    <section class="slide video-slide" data-title="Video Memories">
+      <div class="video-card">
+        <div class="film-strip">
+          ✦ · · · ✦ · · · ✦ · · · ✦
+        </div>
+
+        <p class="eyebrow">A LITTLE PIECE OF YOU</p>
+
+        <h1>Moments I Keep ♡</h1>
+
+        <p class="video-intro">
+          Beberapa potongan kecil dari harimu,
+          yang tanpa sadar menjadi kenangan berharga buat aku.
+        </p>
+
+        <div class="video-frame">
+          <video
+            id="memoryVideo"
+            controls
+            playsinline
+            preload="metadata"
+            poster="assets/foto-utama.jpg"
+          >
+            <source
+              src="assets/video-kenangan.mp4"
+              type="video/mp4"
+            >
+
+            Browser kamu belum mendukung pemutaran video.
+          </video>
+
+          <div class="video-caption">
+            our little collection · with love ♡
+          </div>
+        </div>
+
+        <p class="video-note">
+          Setiap video punya cerita, dan aku suka menjadi
+          bagian dari ceritamu. 🤍
+        </p>
+
+        <div class="video-decor">♡ ✧ ♡ ✧ ♡</div>
+
+        <button class="btn primary next-btn">
+          nextttttttttt →
+        </button>
+
+        <div class="film-strip">
+          ✦ · · · ✦ · · · ✦ · · · ✦
+        </div>
+      </div>
+    </section>
+    
+    <!-- SLIDE 11: FOTO NONGKRONG -->
+    <section class="slide" data-title="Little Moments">
+      <div class="photo-feature-page hangout-page">
+        <p class="eyebrow">A MOMENT OUTSIDE THE ORDINARY</p>
+
+        <h1>Little Moments ☕</h1>
+
+        <p class="feature-intro">
+          Just you, enjoying your own little world.
+          Sometimes, the simplest moments are the nicest.
+        </p>
+
+        <div class="feature-photo-grid">
+          <figure class="feature-photo">
+            <img
+              src="assets/nongkrong-1.jpg"
+              alt="Foto nongkrong pertama"
+              loading="lazy"
+              onerror="this.parentElement.classList.add('photo-missing')"
+            >
+            <figcaption>01 — A good day</figcaption>
+          </figure>
+
+          <figure class="feature-photo">
+            <img
+              src="assets/nongkrong-2.jpg"
+              alt="Foto nongkrong kedua"
+              loading="lazy"
+              onerror="this.parentElement.classList.add('photo-missing')"
+            >
+            <figcaption>02 — Just a moment</figcaption>
+          </figure>
+        </div>
+
+        <p class="feature-note">
+          Some moments are worth keeping. 🤍
+        </p>
+
+        <button class="btn primary next-btn">
+          Continue our story →
+        </button>
+      </div>
+    </section>
+    
+    <!-- SLIDE 10: GYM MODE -->
+    <section class="slide" data-title="Gym Mode">
+      <div class="photo-feature-page gym-page">
+        <p class="eyebrow">DISCIPLINE IN EVERY REP</p>
+
+        <h1>Gym Mode 🏋️</h1>
+
+        <p class="feature-intro">
+          A little glimpse of your dedication.
+          Keep doing your best, one day at a time.
+        </p>
+
+        <div class="feature-photo-grid">
+          <figure class="feature-photo">
+            <img
+              src="assets/gym-1.jpg"
+              alt="Foto saat gym pertama"
+              loading="lazy"
+              onerror="this.parentElement.classList.add('photo-missing')"
+            >
+            <figcaption>01 — Focus</figcaption>
+          </figure>
+
+          <figure class="feature-photo">
+            <img
+              src="assets/gym-2.jpg"
+              alt="Foto saat gym kedua"
+              loading="lazy"
+              onerror="this.parentElement.classList.add('photo-missing')"
+            >
+            <figcaption>02 — Progress</figcaption>
+          </figure>
+        </div>
+
+        <p class="feature-note">
+          Little by little, you’re getting there. ♡
+        </p>
+
+        <button class="btn primary next-btn">
+          Next little moment →
+        </button>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: CERITA KITA -->
+    <section class="slide" data-title="Our Story">
+      <div class="paper story-paper">
+        <p class="eyebrow">HOW IT ALL STARTED</p>
+
+        <h1>Our little story ♡</h1>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-icon">⛰️</span>
+
+            <div>
+              <h3>The mountain map</h3>
+              <p>
+                Kita pertama kali ketemu di map gunung Roblox.
+                Siapa sangka pertemuan itu akan jadi awal cerita kita?
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-icon">🎣</span>
+
+            <div>
+              <h3>November 26, 2025</h3>
+              <p>
+                Kita ketemu lagi di Fish It.
+                Dari sana, cerita kita mulai berkembang.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-icon">💬</span>
+
+            <div>
+              <h3>Becoming closer</h3>
+              <p>
+                Dari teman, cerita random, ketawa bareng,
+                sampai saling menyayangi.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-icon">💗</span>
+
+            <div>
+              <h3>Still choosing you</h3>
+              <p>
+                Hari ini aku masih di sini, dan aku masih
+                senang punya kamu.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn primary next-btn">
+          Sejauh ini kita... →
+        </button>
+      </div>
+    </section>
+
+    <!-- SLIDE 11: PETA LDR -->
+    <section class="slide" data-title="Our Distance">
+      <div class="paper map-page">
+        <p class="eyebrow">TWO PLACES, ONE LITTLE STORY</p>
+
+        <h1>Madura ♡ Bima</h1>
+
+        <p class="body-copy">
+          Aku di Madura, kamu di Bima.
+          Belum bisa duduk bersebelahan, tapi kita masih bisa
+          saling berbagi cerita setiap hari.
+        </p>
+
+        <div class="distance-line">
+          <span>🏡</span>
+          <div class="dotted-line">
+            ··································
+          </div>
+          <span>🏡</span>
+        </div>
+
+        <div class="map-labels">
+          <div>
+            <strong>ME</strong>
+            <span>Madura, Jawa Timur</span>
+          </div>
+
+          <div>
+            <strong>YOU</strong>
+            <span>Bima, Nusa Tenggara Barat</span>
+          </div>
+        </div>
+
+        <div class="map-frame">
+          <iframe
+            title="Peta Madura ke Bima"
+            src="https://maps.google.com/maps?saddr=Pulau+Madura,+Jawa+Timur,+Indonesia&daddr=Bima,+Nusa+Tenggara+Barat,+Indonesia&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <a
+          class="map-open-link"
+          href="https://www.google.com/maps/dir/?api=1&origin=Pulau%20Madura%2C%20Jawa%20Timur%2C%20Indonesia&destination=Bima%2C%20Nusa%20Tenggara%20Barat%2C%20Indonesia"
+          target="_blank"
+          rel="noopener noreferrer">
+          Buka rute di Google Maps ↗
+        </a>
+
+        <p class="tiny-note">
+          Jarak bisa memisahkan tempat, tapi bukan berarti
+          perasaan harus ikut menjauh.
+        </p>
+
+        <button class="btn primary next-btn">
+          Ada doa buat kamu →
+        </button>
+      </div>
+    </section>
+
+    <!-- SLIDE 12: HARAPAN -->
+    <section class="slide" data-title="My Wishes">
+      <div class="paper wishes-page">
+        <p class="eyebrow">MY WISHES FOR YOUR NEW AGE</p>
+
+        <h1>For you, always. ✨</h1>
+
+        <div class="wish-list">
+          <div>🌱 Semoga kamu selalu diberi kesehatan dan ketenangan.</div>
+          <div>🌙 Semoga hal-hal yang kamu khawatirkan perlahan terasa lebih ringan.</div>
+          <div>💪 Semoga kamu semakin yakin pada diri sendiri.</div>
+          <div>🎯 Semoga satu per satu impianmu bisa kamu capai.</div>
+          <div>🫂 Semoga kamu dikelilingi orang-orang yang tulus menyayangimu.</div>
+          <div>💗 Semoga aku juga bisa menjadi salah satu alasan kamu tersenyum.</div>
+        </div>
+
+        <p class="body-copy">
+          Kamu layak mendapatkan hal-hal baik.
+          Kamu nggak harus membuktikan apa pun untuk pantas bahagia.
+        </p>
+
+        <button class="btn primary next-btn">
+          Psst... rahasia terakhir →
+        </button>
+      </div>
+    </section>
+
+    <!-- SLIDE 13: PENUTUP -->
+    <section class="slide final-slide" data-title="One Last Thing">
+      <div class="final-card">
+        <div class="final-stars">✦ ✧ ✦</div>
+
+        <p class="eyebrow">ONE LAST THING</p>
+
+        <h1>Can I keep choosing you?</h1>
+
+        <p class="body-copy">
+          Aku nggak bisa janji kalau semuanya akan selalu mudah.
+          Tapi aku mau terus belajar memahami kamu, mendengarkan
+          ceritamu, merayakan hal-hal kecil bersamamu, dan
+          menghadapi hari-hari sulit dengan komunikasi yang baik.
+        </p>
+
+        <div class="secret-box">
+          <button class="btn outline-btn" id="secretBtn">
+            Buka pesan rahasia 💌
+          </button>
+
+          <p id="secretMessage" class="hidden">
+            Kalau suatu hari kamu mulai meragukan dirimu sendiri, 
+            semoga kamu ingat bahwa nggak semua hal baik harus 
+            selalu terlihat untuk bisa berarti. Jadi, tetaplah 
+            menjadi dirimu sendiri, karena ada hal-hal sederhana 
+            dari dirimu yang mungkin lebih berarti daripada yang 
+            kamu kira. ♡
+        </div>
+
+        <div class="final-heart">♥</div>
+
+        <h2>Happy Birthday, sayangku!</h2>
+
+        <p>
+          Semoga umur 25 menjadi awal dari banyak hal baik untukmu.
+        </p>
+
+        <p class="signature">
+          I love you, always and gently. ♡
+        </p>
+
+        <button class="btn primary" id="restartBtn">
+          Ulangi dari awal ↺
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- NAVIGASI -->
+  <nav class="navigation" aria-label="Navigasi slide">
+    <button id="prevBtn" aria-label="Slide sebelumnya">←</button>
+
+    <span id="slideCounter">01 / 15</span>
+
+    <button id="nextBtn" aria-label="Slide berikutnya">→</button>
+  </nav>
+
+  <!-- LIGHTBOX FOTO -->
+  <div
+    class="lightbox hidden"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Foto kenangan">
+
+    <button
+      class="lightbox-close"
+      id="lightboxClose"
+      aria-label="Tutup foto">
+      ×
+    </button>
+
+    <img id="lightboxImage" src="" alt="Foto kenangan">
+
+    <p id="lightboxCaption"></p>
+  </div>
+
+  <!-- AUDIO -->
+  
+<audio id="song" src="assets/music.mp3" loop preload="auto" autoplay></audio>
+
+  <button
+    class="music-btn"
+    id="musicBtn"
+    aria-label="Putar atau jeda musik">
+    ♫
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
